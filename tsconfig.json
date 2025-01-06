@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "target": "ES2020", // Upgrade to ES2020 or higher
+    "strict": true,
+    "sourceMap": true,
+    "outDir": "lib",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true // Skip type-checking for node_modules
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
