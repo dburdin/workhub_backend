@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 
 const errorMap: Record<number, string> = {
-  500: "Internal Server Error",
-  400: "Bad Request",
-  403: "Forbidden",
-  404: "Not Found",
-  405: "Method not allowed",
+  500: "Internal Server Error CUSTOM",
+  400: "Bad Request CUSTOM",
+  403: "Forbidden CUSTOM",
+  404: "Not Found CUSTOM",
+  405: "Method not allowed CUSTOM",
 };
 
 export const HttpError = (

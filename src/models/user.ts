@@ -24,5 +24,5 @@ export const UserScheme = Joi.object<User>({
   role: Joi.string()
     .valid("Lawyer", "Content manager", "Security", "Designer")
     .required(),
-  img: Joi.string().required(),
+  img: Joi.string().optional(),
 });

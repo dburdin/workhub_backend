@@ -1,9 +1,15 @@
 import { RouteMap } from "../types";
+import { add, get } from "../controllers";
 
 export const routesMap: RouteMap[] = [
   {
-    url: "/users",
+    path: "/users",
     method: "GET",
-    controller: (req, res) => 1 + 1,
+    controller: get,
+  },
+  {
+    path: "/users",
+    method: "POST",
+    controller: add,
   },
 ];

@@ -10,16 +10,29 @@ export const handleRequest = (
   req: Request,
   res: Response
 ) => {
-  const currentRoute = routesMap.find((route) => route.url === req.originalUrl);
+  let matchedRoute: RouteMap | null = null;
+  let methodAllowed: Boolean = false;
 
-  if (!currentRoute) {
-    HttpError(400, req, res);
+  for (const route of routesMap) {
+    if (route.path === req.originalUrl) {
+      matchedRoute = route;
+      if (matchedRoute.method === req.method) {
+        methodAllowed = true;
+        break;
+      }
+    }
+  }
+
+  if (!matchedRoute) {
+    HttpError(404, req, res);
     return;
   }
 
-  if (currentRoute.method !== req.method) {
+  if (!methodAllowed) {
+    console.log("Method not allowed for route:", req.method, req.originalUrl);
     HttpError(405, req, res);
+    return;
   }
 
-  ctrlWrapper(currentRoute.controller);
+  ctrlWrapper(matchedRoute.controller)(req, res);
 };

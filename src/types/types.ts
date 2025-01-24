@@ -1,6 +1,8 @@
+import { Request, Response } from "express";
+
 export interface RouteMap {
-  url: string;
-  method: string;
+  path: string;
+  method: "GET" | "POST" | "PUT" | "DELETE";
   controller: (req: Request, res: Response) => void;
 }
 
@@ -9,5 +11,5 @@ export interface User {
   email: string;
   phone: string;
   role: "Lawyer" | "Content manager" | "Security" | "Designer";
-  img: string;
+  img: string | File;
 }

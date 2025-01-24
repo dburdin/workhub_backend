@@ -3,4 +3,4 @@ export const GLOBAL_OPTIONS = {
   maxInstances: 10,
 };
 
-export const ALLOWED_ORIGINS = ["*"];
+export const ALLOWED_ORIGINS = "*";
